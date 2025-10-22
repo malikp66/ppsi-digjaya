@@ -1,17 +1,18 @@
 'use client';
 
 import Link from "next/link";
-import { useEffect, useMemo, useState, type ElementType } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ElementType,
+} from "react";
+import { gsap } from "gsap";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import {
-  Facebook,
-  Instagram,
-  Mail,
-  Phone,
-  Youtube,
-} from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 type MaintenancePageProps = {
   deadline: string;
@@ -31,9 +32,21 @@ const ZERO_STATE: Countdown = {
   seconds: "00",
 };
 
+const TIMER_LABELS = ["Days", "Hours", "Minutes", "Seconds"] as const;
+
 export function MaintenancePage({ deadline }: MaintenancePageProps) {
   const targetTime = useMemo(() => new Date(deadline).getTime(), [deadline]);
   const [countdown, setCountdown] = useState<Countdown>(ZERO_STATE);
+
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const overlayRef = useRef<HTMLDivElement | null>(null);
+  const headerRef = useRef<HTMLElement | null>(null);
+  const mainRef = useRef<HTMLElement | null>(null);
+  const buttonWrapperRef = useRef<HTMLDivElement | null>(null);
+  const footerRef = useRef<HTMLElement | null>(null);
+  const timerRefs = useRef<Array<HTMLDivElement | null>>(
+    Array(TIMER_LABELS.length).fill(null),
+  );
 
   useEffect(() => {
     function updateCountdown() {
@@ -63,10 +76,37 @@ export function MaintenancePage({ deadline }: MaintenancePageProps) {
     return () => window.clearInterval(timer);
   }, [targetTime]);
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        defaults: { ease: "power3.out", duration: 0.8 },
+      });
+
+      tl.from(containerRef.current, { opacity: 0, duration: 1 })
+        .from(overlayRef.current, { opacity: 0, duration: 1.2 }, "<")
+        .from(headerRef.current, { y: -40, opacity: 0 }, "-=0.6")
+        .from(
+          mainRef.current?.querySelectorAll("[data-animate='headline']") ?? [],
+          { y: 36, opacity: 0, stagger: 0.15 },
+          "-=0.4",
+        )
+        .from(
+          timerRefs.current.filter(Boolean),
+          { y: 30, opacity: 0, stagger: 0.12 },
+          "-=0.4",
+        )
+        .from(buttonWrapperRef.current, { scale: 0.9, opacity: 0 }, "-=0.3")
+        .from(footerRef.current, { y: 24, opacity: 0 }, "-=0.2");
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const isPastDeadline = targetTime <= Date.now();
 
   return (
     <div
+      ref={containerRef}
       className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-black text-foreground"
       style={{
         backgroundImage: "url('/silat.jpg')",
@@ -75,12 +115,20 @@ export function MaintenancePage({ deadline }: MaintenancePageProps) {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,13,18,0.85)_0%,rgba(8,13,18,0.92)_35%,rgba(8,13,18,0.9)_100%)]" />
-      <div className="relative z-10 flex min-h-screen w-full max-w-6xl flex-col px-6 py-10 sm:px-12 lg:px-16">
-        <header className="flex items-center justify-between text-xs uppercase tracking-[0.5rem] text-primary/80 sm:text-sm">
-          <span className="font-semibold">PPSI DIGJAYA</span>
-          <nav className="flex gap-6 text-[0.7rem] tracking-[0.35rem] text-muted-foreground sm:text-xs">
-            {/* <Link className="transition-colors hover:text-primary" href="#about">
+      <div
+        ref={overlayRef}
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,13,18,0.85)_0%,rgba(8,13,18,0.92)_35%,rgba(8,13,18,0.9)_100%)]"
+      />
+      <div className="relative z-10 flex min-h-screen w-full max-w-6xl flex-col px-5 py-10 sm:px-9 lg:px-16">
+        <header
+          ref={headerRef}
+          className="flex items-center justify-between text-[0.55rem] uppercase tracking-[0.28rem] text-primary/80 sm:text-xs sm:tracking-[0.35rem]"
+        >
+          <span className="font-semibold tracking-[0.35rem] sm:tracking-[0.45rem]">
+            PPSI DIGJAYA
+          </span>
+          <nav className="hidden gap-6 text-[0.65rem] tracking-[0.25rem] text-muted-foreground sm:flex sm:text-xs sm:tracking-[0.35rem]">
+            <Link className="transition-colors hover:text-primary" href="#about">
               About
             </Link>
             <Link
@@ -88,58 +136,72 @@ export function MaintenancePage({ deadline }: MaintenancePageProps) {
               href="#contact"
             >
               Contact
-            </Link> */}
+            </Link>
           </nav>
         </header>
 
-        <main className="flex flex-1 flex-col items-center justify-center gap-8 text-center text-sm sm:text-base">
-          <div className="space-y-5 sm:space-y-7">
-            <p className="text-xs uppercase tracking-[0.65rem] text-primary/70 sm:text-sm">
+        <main
+          ref={mainRef}
+          className="flex flex-1 flex-col items-center justify-center gap-7 text-center text-sm sm:gap-8 sm:text-base"
+        >
+          <div className="space-y-4 sm:space-y-6">
+            <p
+              data-animate="headline"
+              className="text-[0.6rem] uppercase tracking-[0.32rem] text-primary/70 sm:text-xs sm:tracking-[0.55rem]"
+            >
               Under Development
             </p>
-            <h1 className="text-4xl font-semibold uppercase tracking-[0.8rem] text-primary drop-shadow md:text-6xl">
+            <h1
+              data-animate="headline"
+              className="text-3xl font-semibold uppercase tracking-[0.45rem] text-primary drop-shadow sm:text-4xl sm:tracking-[0.6rem] md:text-6xl md:tracking-[0.8rem]"
+            >
               Coming Soon
             </h1>
-            <p className="mx-auto max-w-2xl text-balance text-muted-foreground">
+            <p
+              data-animate="headline"
+              className="mx-auto max-w-xl text-pretty text-xs text-muted-foreground sm:max-w-2xl sm:text-sm"
+            >
               Kami sedang menyiapkan pengalaman digital terbaru. Tetap terhubung
-              dan aktifkan pengingat agar tidak melewatkan peluncuran demo pada
+              dan aktifkan pengingat agar tidak melewatkan peluncuran resmi pada
               16 November 2025.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-            {(
-              [
-                ["Days", countdown.days],
-                ["Hours", countdown.hours],
-                ["Minutes", countdown.minutes],
-                ["Seconds", countdown.seconds],
-              ] as const
-            ).map(([label, value]) => (
-              <div
-                key={label}
-                className="flex min-w-[110px] flex-col items-center rounded-lg border border-white/10 bg-white/5 px-6 py-4 text-primary backdrop-blur"
-              >
-                <span className="text-3xl font-semibold tracking-tight sm:text-4xl">
-                  {value}
-                </span>
-                <span className="mt-1 text-xs uppercase tracking-[0.4rem] text-muted-foreground">
-                  {label}
-                </span>
-              </div>
-            ))}
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
+            {TIMER_LABELS.map((label, index) => {
+              const value = countdown[label.toLowerCase() as keyof Countdown];
+
+              return (
+                <div
+                  key={label}
+                  ref={(element) => {
+                    timerRefs.current[index] = element;
+                  }}
+                  className="flex h-24 w-24 flex-col items-center justify-center rounded-xl border border-white/10 bg-white/5 px-4 text-primary backdrop-blur sm:h-28 sm:w-28"
+                >
+                  <span className="text-2xl font-semibold tracking-tight sm:text-4xl">
+                    {value}
+                  </span>
+                  <span className="mt-1 text-[0.58rem] uppercase tracking-[0.28rem] text-muted-foreground sm:text-xs sm:tracking-[0.4rem]">
+                    {label}
+                  </span>
+                </div>
+              );
+            })}
           </div>
 
-          <Button
-            className="flex items-center gap-2 rounded-full border border-primary/70 bg-transparent px-8 py-3 text-primary hover:border-primary hover:bg-primary/10"
-            variant="outline"
-            asChild
-          >
-            <Link href="mailto:yessikurniawan@gmail.com">
-              <Mail className="h-4 w-4" />
-              Notify Me
-            </Link>
-          </Button>
+          <div ref={buttonWrapperRef} className="mt-1">
+            <Button
+              className="flex items-center gap-2 rounded-full border border-primary/70 bg-transparent px-6 py-3 text-primary hover:border-primary hover:bg-primary/10"
+              variant="outline"
+              asChild
+            >
+              <Link href="mailto:yessikurniawan@gmail.com">
+                <Mail className="h-4 w-4" />
+                Notify Me
+              </Link>
+            </Button>
+          </div>
 
           {isPastDeadline && (
             <span className="text-xs uppercase tracking-[0.35rem] text-destructive">
@@ -148,9 +210,12 @@ export function MaintenancePage({ deadline }: MaintenancePageProps) {
           )}
         </main>
 
-        <footer className="flex flex-col gap-6 pt-10 text-xs uppercase tracking-[0.35rem] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <footer
+          ref={footerRef}
+          className="flex flex-col gap-5 pt-10 text-[0.6rem] uppercase tracking-[0.25rem] text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:text-xs sm:tracking-[0.35rem]"
+        >
           <span>Website by PPSI Digjaya. All Rights Reserved.</span>
-          <div className="flex items-center justify-center gap-5 text-primary">
+          <div className="flex items-center justify-center gap-4 text-primary sm:gap-5">
             <SocialLink
               ariaLabel="Hubungi kami"
               href="tel:+628112119718"
@@ -161,21 +226,6 @@ export function MaintenancePage({ deadline }: MaintenancePageProps) {
               href="mailto:yessikurniawan@gmail.com"
               icon={Mail}
             />
-            {/* <SocialLink
-              ariaLabel="Instagram"
-              href="https://instagram.com"
-              icon={Instagram}
-            />
-            <SocialLink
-              ariaLabel="Facebook"
-              href="https://facebook.com"
-              icon={Facebook}
-            />
-            <SocialLink
-              ariaLabel="Youtube"
-              href="https://youtube.com"
-              icon={Youtube}
-            /> */}
           </div>
         </footer>
       </div>
