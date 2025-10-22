@@ -117,7 +117,7 @@ export function MaintenancePage({ deadline }: MaintenancePageProps) {
     >
       <div
         ref={overlayRef}
-        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,13,18,0.85)_0%,rgba(8,13,18,0.92)_35%,rgba(8,13,18,0.9)_100%)]"
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,13,18,0.55)_0%,rgba(8,13,18,0.65)_35%,rgba(8,13,18,0.6)_100%)]"
       />
       <div className="relative z-10 flex min-h-screen w-full max-w-6xl flex-col px-5 py-10 sm:px-9 lg:px-16">
         <header
