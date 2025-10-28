@@ -1,0 +1,26 @@
+[
+  {
+    "id": "dojo-1",
+    "name": "Padepokan Gajah Putih",
+    "leader": "H. Suryana",
+    "members": 120,
+    "coordinates": [106.816666, -6.2],
+    "region": "Bandung"
+  },
+  {
+    "id": "dojo-2",
+    "name": "Sasana Ligar",
+    "leader": "Dian Kartika",
+    "members": 98,
+    "coordinates": [107.60981, -6.914744],
+    "region": "Bandung"
+  },
+  {
+    "id": "dojo-3",
+    "name": "Pencak Rengganis",
+    "leader": "Ki Atmaja",
+    "members": 64,
+    "coordinates": [108.203445, -7.327894],
+    "region": "Tasikmalaya"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "memberGrowth": [
+    { "label": "Jan", "value": 240 },
+    { "label": "Feb", "value": 280 },
+    { "label": "Mar", "value": 320 },
+    { "label": "Apr", "value": 360 },
+    { "label": "Mei", "value": 410 }
+  ],
+  "rankDistribution": [
+    { "label": "Sabuk Putih", "value": 120 },
+    { "label": "Sabuk Hijau", "value": 95 },
+    { "label": "Sabuk Coklat", "value": 60 },
+    { "label": "Sabuk Hitam", "value": 42 }
+  ],
+  "certificates": 248,
+  "activeDojos": 37,
+  "finance": [
+    { "label": "Q1", "value": 42000000 },
+    { "label": "Q2", "value": 56000000 },
+    { "label": "Q3", "value": 61000000 },
+    { "label": "Q4", "value": 72000000 }
+  ]
+}

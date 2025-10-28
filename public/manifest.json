@@ -1,0 +1,15 @@
+{
+  "name": "PPSI Digjaya",
+  "short_name": "PPSI",
+  "start_url": "/id",
+  "display": "standalone",
+  "background_color": "#f8f8f8",
+  "theme_color": "#14532d",
+  "icons": [
+    {
+      "src": "/images/hero-poster.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}

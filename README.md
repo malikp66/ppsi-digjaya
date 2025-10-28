@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PPSI Digjaya Frontend
+
+Digital platform for Persatuan Pencak Silat Indonesia (PPSI) to showcase cultural archives, manage training, certifications, and community programs. Built with Next.js App Router and themed UI primitives that follow PPSI branding tokens.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Production Build & Analysis
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm build
+pnpm start
+pnpm analyze # bundle insights (requires optional @next/bundle-analyzer)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Quality Commands
 
-## Learn More
+```bash
+pnpm lint
+pnpm typecheck
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+  app/
+    [locale]/(public)/...      # Landing, culture hub, training, certificates, marketplace, gallery
+    [locale]/(members)/...     # Member dashboards (overview, members list, map, analytics, certifications)
+    [locale]/(admin)/...       # Admin & finance dashboard
+    api/mock/                  # Static JSON fixtures served via route handlers
+  components/
+    blocks/                    # PPSI themed sections (hero, cards, navigation)
+    charts/                    # Lightweight chart wrappers (SVG based)
+    culture/, training/, join/ # Feature specific client components
+    layout/                    # Providers and app shell
+    ui/                        # Wrapped shadcn-style primitives (buttons, cards, forms, toast, etc.)
+  data/fixtures/               # Mock data consumed by pages & API
+  lib/                         # Utilities, API abstraction, hooks, Zustand-like store stubs
+  messages/                    # i18n messages (id & su)
+styles/                        # Design tokens & global Tailwind theme
+public/                        # PWA manifest, service worker, placeholder assets
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Key Features
 
-## Deploy on Vercel
+- **Design tokens & branding**: Tailwind + CSS variables for PPSI brown/gold/green palette, neumorphic shadows, bespoke typography (Poppins & Noto Serif Display).
+- **UI primitives**: Wrapped shadcn-inspired components (`PButton`, `PCard`, `PSelect`, etc.) with PPSI theming and accessible focus rings.
+- **Animations**: GSAP powered hero reveal, motion-safe checks, reusable `useGSAP` hook.
+- **State & data**: Zustand-like store stub for UI state, `fetchMock` abstraction for fixtures, static `/api/mock` endpoints.
+- **Internationalisation**: Simple `next-intl` compatible provider with Bahasa Indonesia & Sunda toggles.
+- **PWA**: Manifest, offline shell service worker, automatic registration when enabled.
+- **Dashboards**: Member analytics, map visualization, certification management, admin finance overview.
+- **Accessibility & performance**: Keyboard friendly controls, reduced-motion support, responsive layouts, SVG placeholders for optimized media.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Adding Content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Extend fixtures inside `src/data/fixtures/*.json` to surface new members, courses, events, or marketplace items.
+- Update translation strings in `src/messages/{id,su}.json` for locale support.
+- Component gallery (`/gallery`) demonstrates available UI pieces for rapid prototyping.
+
+## Theme & Locale Switching
+
+- Theme follows system preference via custom `ThemeProvider` and can be toggled in the header.
+- Locale switch toggles Bahasa Indonesia (id) and Sunda (su) paths while preserving the current route.
+
+Enjoy building with PPSI Digjaya!

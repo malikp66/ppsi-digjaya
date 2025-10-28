@@ -1,0 +1,20 @@
+[
+  {
+    "id": "cert-001",
+    "memberId": "member-1",
+    "holder": "Siti Rahma",
+    "level": "Pendekar Madya",
+    "issuedAt": "2024-10-12",
+    "validUntil": "2026-10-12",
+    "qr": "PPSI-CERT-001"
+  },
+  {
+    "id": "cert-002",
+    "memberId": "member-2",
+    "holder": "Rangga Saputra",
+    "level": "Guru Muda",
+    "issuedAt": "2023-08-21",
+    "validUntil": "2025-08-21",
+    "qr": "PPSI-CERT-002"
+  }
+]

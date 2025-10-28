@@ -1,0 +1,18 @@
+[
+  {
+    "id": "event-1",
+    "title": "Festival Silat Nusantara",
+    "date": "2025-06-18",
+    "location": "Gedung Merdeka Bandung",
+    "description": "Pertunjukan silat klasik dan modern, bazar budaya, dan lokakarya.",
+    "status": "registrasi"
+  },
+  {
+    "id": "event-2",
+    "title": "Workshop Kurikulum Digital",
+    "date": "2025-05-28",
+    "location": "PPSI Learning Hub",
+    "description": "Pelatihan penggunaan modul e-learning dan penilaian video.",
+    "status": "penuh"
+  }
+]

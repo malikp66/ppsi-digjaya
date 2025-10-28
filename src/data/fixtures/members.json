@@ -1,0 +1,47 @@
+[
+  {
+    "id": "member-1",
+    "name": "Siti Rahma",
+    "dojo": "Padepokan Gajah Putih",
+    "rank": "Sabuk Coklat",
+    "age": 24,
+    "gender": "female",
+    "province": "Jawa Barat",
+    "achievements": ["Juara 1 Kejurda 2024", "Instruktur Muda"],
+    "badges": ["bronze", "silver"],
+    "profession": "Pelatih",
+    "interests": ["Tari Tradisional", "Digital Archive"],
+    "verified": true,
+    "avatar": "/images/avatars/siti.svg"
+  },
+  {
+    "id": "member-2",
+    "name": "Rangga Saputra",
+    "dojo": "Sasana Ligar",
+    "rank": "Sabuk Hitam",
+    "age": 29,
+    "gender": "male",
+    "province": "DKI Jakarta",
+    "achievements": ["Delegasi UNESCO", "Pelatih Nasional"],
+    "badges": ["gold"],
+    "profession": "Analis Data",
+    "interests": ["Map Visualization", "E-learning"],
+    "verified": true,
+    "avatar": "/images/avatars/rangga.svg"
+  },
+  {
+    "id": "member-3",
+    "name": "Dewi Pertiwi",
+    "dojo": "Pencak Rengganis",
+    "rank": "Sabuk Hijau",
+    "age": 19,
+    "gender": "female",
+    "province": "Jawa Tengah",
+    "achievements": ["Konten Kreator Silat"],
+    "badges": ["bronze"],
+    "profession": "Mahasiswi",
+    "interests": ["Podcast", "Kewirausahaan"],
+    "verified": false,
+    "avatar": "/images/avatars/dewi.svg"
+  }
+]

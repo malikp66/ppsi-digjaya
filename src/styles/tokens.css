@@ -1,0 +1,46 @@
+:root {
+  --color-brown: #3b2f2f;
+  --color-gold: #d4af37;
+  --color-bg: #f8f8f8;
+  --color-green: #14532d;
+  --color-red: #c62828;
+  --color-ink: #1f2933;
+  --color-muted: rgba(59, 47, 47, 0.08);
+  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-inset: inset 0 1px 2px rgba(255, 255, 255, 0.6), inset 0 -2px 4px rgba(0, 0, 0, 0.04);
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 999px;
+  --space-2: 0.5rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  --space-48: 12rem;
+  --space-64: 16rem;
+  --z-header: 50;
+  --z-overlay: 60;
+  --z-toast: 70;
+}
+
+.dark {
+  --color-brown: #2b2323;
+  --color-gold: #f4c95d;
+  --color-bg: #0f0f0f;
+  --color-green: #1f7f48;
+  --color-red: #ef5350;
+  --color-ink: #f0f4f8;
+  --color-muted: rgba(255, 255, 255, 0.06);
+  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.24);
+  --shadow-inset: inset 0 1px 2px rgba(255, 255, 255, 0.04), inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-duration: 0ms;
+    --motion-ease: linear;
+  }
+}

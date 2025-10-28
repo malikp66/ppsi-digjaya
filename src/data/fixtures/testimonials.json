@@ -1,0 +1,14 @@
+[
+  {
+    "id": "testimonial-1",
+    "name": "Atalia Pradita",
+    "role": "Ketua Perguruan",
+    "quote": "Platform PPSI membuat anggota kami lebih mudah mengakses materi latihan dan arsip budaya."
+  },
+  {
+    "id": "testimonial-2",
+    "name": "Yuda Prasetyo",
+    "role": "Atlet Nasional",
+    "quote": "Dashboard pelatihan sangat membantu memantau progres dan evaluasi video."
+  }
+]

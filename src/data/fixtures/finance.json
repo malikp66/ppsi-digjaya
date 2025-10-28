@@ -1,0 +1,13 @@
+{
+  "income": [
+    { "label": "Iuran Anggota", "amount": 120000000 },
+    { "label": "Sponsorship", "amount": 85000000 },
+    { "label": "Donasi", "amount": 56000000 }
+  ],
+  "expenses": [
+    { "label": "Program Pelatihan", "amount": 72000000 },
+    { "label": "Digitalisasi Arsip", "amount": 46000000 },
+    { "label": "Event Tahunan", "amount": 54000000 }
+  ],
+  "balance": 78000000
+}
