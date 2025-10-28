@@ -1,0 +1,28 @@
+[
+  {
+    "id": "product-1",
+    "title": "Seragam Latihan PPSI",
+    "price": 350000,
+    "category": "Merch",
+    "seller": "UMKM Silat Jabar",
+    "images": [
+      "/images/products/seragam-1.svg",
+      "/images/products/seragam-2.svg"
+    ],
+    "description": "Seragam kain katun tebal dengan bordir logo PPSI.",
+    "stock": 40
+  },
+  {
+    "id": "product-2",
+    "title": "Golok Tradisional",
+    "price": 890000,
+    "category": "Perlengkapan",
+    "seller": "Galeri Budaya Sunda",
+    "images": [
+      "/images/products/golok-1.svg",
+      "/images/products/golok-2.svg"
+    ],
+    "description": "Golok tempa manual cocok untuk atraksi seni.",
+    "stock": 12
+  }
+]

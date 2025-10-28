@@ -25,7 +25,19 @@
     "paths": {
       "@/*": [
         "./src/*"
-      ]
+      ],
+      "next-themes": ["./src/lib/stubs/next-themes"],
+      "next-intl": ["./src/lib/stubs/next-intl"],
+      "next-intl/server": ["./src/lib/stubs/next-intl-server"],
+      "react-hook-form": ["./src/lib/stubs/react-hook-form"],
+      "@hookform/resolvers/zod": [
+        "./src/lib/stubs/hookform-resolvers-zod"
+      ],
+      "zod": ["./src/lib/stubs/zod"],
+      "zustand": ["./src/lib/stubs/zustand"],
+      "next-pwa": ["./src/lib/stubs/next-pwa"],
+      "qrcode": ["./src/lib/stubs/qrcode"],
+      "recharts": ["./src/lib/stubs/recharts"]
     }
   },
   "include": [

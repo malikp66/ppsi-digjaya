@@ -1,85 +1,105 @@
 @import "tailwindcss";
+@import "tailwindcss/typography";
 @plugin "tailwindcss-animate";
+@import "../styles/tokens.css";
 
 :root {
-  --background: 220 13% 12%;
-  --foreground: 210 40% 98%;
-  --card: 220 13% 12%;
-  --card-foreground: 210 40% 98%;
-  --popover: 220 13% 12%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 210 40% 98%;
-  --primary-foreground: 220 13% 12%;
-  --secondary: 220 13% 20%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 220 13% 18%;
-  --muted-foreground: 218 14% 65%;
-  --accent: 220 13% 18%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 220 13% 18%;
-  --input: 220 13% 18%;
-  --ring: 210 40% 98%;
-  --radius: 0.75rem;
+  color-scheme: light;
+  --font-sans: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-display: "Noto Serif Display", "Times New Roman", serif;
+  --motion-duration: 250ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-  }
+.dark {
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --font-sans: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", Menlo,
-    Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+* {
+  @apply border-border;
 }
 
 body {
-  min-height: 100vh;
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+  @apply bg-surface text-ink antialiased;
   font-family: var(--font-sans);
+  min-height: 100vh;
+}
+
+main {
+  @apply min-h-screen;
+}
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --color-surface: var(--color-bg);
+  --color-ink: var(--color-ink);
+  --color-heritage: var(--color-brown);
+  --color-prestige: var(--color-gold);
+  --color-forest: var(--color-green);
+  --color-accent: var(--color-red);
+  --color-muted: var(--color-muted);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-inset: var(--shadow-inset);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-full: var(--radius-full);
+  --spacing-2: var(--space-2);
+  --spacing-4: var(--space-4);
+  --spacing-6: var(--space-6);
+  --spacing-8: var(--space-8);
+  --spacing-12: var(--space-12);
+  --spacing-16: var(--space-16);
+  --spacing-24: var(--space-24);
+  --spacing-32: var(--space-32);
+  --spacing-48: var(--space-48);
+  --spacing-64: var(--space-64);
+}
+
+:root {
+  --border: rgba(59, 47, 47, 0.12);
+  --card: rgba(255, 255, 255, 0.86);
+  --card-foreground: var(--color-ink);
+}
+
+.dark {
+  --border: rgba(255, 255, 255, 0.12);
+  --card: rgba(19, 19, 19, 0.86);
+  --card-foreground: var(--color-ink);
+}
+
+a {
+  @apply text-forest underline-offset-4 transition-colors hover:text-prestige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-prestige;
+}
+
+.focus-ring {
+  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-prestige;
+}
+
+.neumorphic {
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  color: var(--card-foreground);
+}
+
+.neumorphic-inset {
+  box-shadow: var(--shadow-inset);
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.motion-safe .animate-float {
+  animation: float 4s var(--motion-ease) infinite;
 }

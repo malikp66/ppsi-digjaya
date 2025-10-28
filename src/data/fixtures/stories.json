@@ -1,0 +1,28 @@
+[
+  {
+    "id": "story-1",
+    "title": "Sejarah Perguruan Sinar Pusaka",
+    "author": "Dr. Laksmi",
+    "date": "2024-11-02",
+    "category": "Sejarah",
+    "region": "Garut",
+    "era": "1960-an",
+    "school": "Sinar Pusaka",
+    "summary": "Perguruan yang mendokumentasikan jurus guratan daun dan berhasil masuk arsip UNESCO.",
+    "body": "Sinar Pusaka berdiri di Garut dan menjaga jurus guratan daun melalui digitalisasi manuskrip.",
+    "thumbnail": "/images/stories/sinar-pusaka.svg"
+  },
+  {
+    "id": "story-2",
+    "title": "Prestasi Atlet PPSI di Kejuaraan Dunia",
+    "author": "Rina Maulida",
+    "date": "2025-01-14",
+    "category": "Prestasi",
+    "region": "Bandung",
+    "era": "Modern",
+    "school": "PPSI",
+    "summary": "Delegasi PPSI berhasil meraih tiga emas di ajang internasional.",
+    "body": "Para atlet PPSI mempersiapkan diri melalui program latihan digital dan mentoring intensif.",
+    "thumbnail": "/images/stories/prestasi.svg"
+  }
+]

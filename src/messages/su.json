@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "home": "Imah",
+    "about": "Ngeunaan",
+    "culture": "Kabudayaan",
+    "training": "Palatihan",
+    "certificates": "Sertipikat",
+    "market": "Pasar & Réréongan",
+    "admin": "Organisasi",
+    "join": "Gabung",
+    "dashboard": "Dasbor"
+  },
+  "hero": {
+    "title": "Ngamumule Warisan, Ngawangun Generasi",
+    "subtitle": "Platform digital PPSI pikeun ngadaptarkeun budaya, latihan modéren, jeung ngamandiri komunitas.",
+    "explore": "Jajah Kabudayaan",
+    "join": "Gabung PPSI"
+  },
+  "footer": {
+    "tagline": "PPSI Digjaya \u2013 Digitalisasi Pencak Silat Jawa Barat",
+    "contact": "Kontak",
+    "email": "Sekretariat@ppsi.id",
+    "phone": "(+62) 812-3333-4444",
+    "links": "Tumbu Gancang"
+  },
+  "cta": {
+    "seeAll": "Téang sadayana",
+    "viewDetail": "Tingali rinci",
+    "download": "Undeur"
+  }
+}

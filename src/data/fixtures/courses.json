@@ -1,0 +1,28 @@
+[
+  {
+    "id": "course-1",
+    "title": "Fundamental Jurus PPSI",
+    "instructor": "Guru Besar Rahmat",
+    "duration": "12 modul",
+    "level": "Pemula",
+    "thumbnail": "/images/courses/fundamental.svg",
+    "progress": 75,
+    "schedule": "Setiap Senin",
+    "transcript": "Gerak dasar dan napas.",
+    "feedback": "Teknik sudah presisi, lanjutkan latihan nafas.",
+    "nextSession": "2025-05-12"
+  },
+  {
+    "id": "course-2",
+    "title": "Aplikasi Silat untuk Tanding",
+    "instructor": "Pelatih Nia",
+    "duration": "8 modul",
+    "level": "Lanjutan",
+    "thumbnail": "/images/courses/tanding.svg",
+    "progress": 30,
+    "schedule": "Rabu & Jumat",
+    "transcript": "Strategi tanding, analisis lawan.",
+    "feedback": "Perkuat stamina, catat latihan mandiri.",
+    "nextSession": "2025-05-16"
+  }
+]
